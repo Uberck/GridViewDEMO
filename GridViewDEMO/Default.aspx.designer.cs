@@ -12,6 +12,8 @@ namespace GridViewDEMO
 
 
     public partial class _Default
+        
     {
+        Console.Writeline("Hello");
     }
 }
