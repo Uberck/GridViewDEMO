@@ -5,43 +5,55 @@
     
     <!-- Test sync 6:55 pm -->
     <!-- Update 9:30 pm -->
-    
-    
-    <!-- <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
-    </div> --->
+<!-- GridView with EventHandlers + Form for SQL INSERT -->
+    
+    
+<div id="dvGrid" style="padding: 10px; width: 450px">
+<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <ContentTemplate>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowDataBound="OnRowDataBound"
+            DataKeyNames="CustomerId" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" PageSize = "3" AllowPaging ="true" OnPageIndexChanging = "OnPaging"
+            OnRowUpdating="OnRowUpdating" OnRowDeleting="OnRowDeleting" EmptyDataText="No records has been added."
+            Width="450">
+            <Columns>
+                <asp:TemplateField HeaderText="Name" ItemStyle-Width="150">
+                    <ItemTemplate>
+                        <asp:Label ID="lblName" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtName" runat="server" Text='<%# Eval("Name") %>' Width="140"></asp:TextBox>
+                    </EditItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Country" ItemStyle-Width="150">
+                    <ItemTemplate>
+                        <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("Country") %>'></asp:Label>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtCountry" runat="server" Text='<%# Eval("Country") %>' Width="140"></asp:TextBox>
+                    </EditItemTemplate>
+                </asp:TemplateField>
+                <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true"
+                    ItemStyle-Width="150" />
+            </Columns>
+        </asp:GridView>
+        <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+            <tr>
+                <td style="width: 150px">
+                    Name:<br />
+                    <asp:TextBox ID="txtName" runat="server" Width="140" />
+                </td>
+                <td style="width: 150px">
+                    Country:<br />
+                    <asp:TextBox ID="txtCountry" runat="server" Width="140" />
+                </td>
+                <td style="width: 150px">
+                    <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="Insert" />
+                </td>
+            </tr>
+        </table>
+    </ContentTemplate>
+</asp:UpdatePanel>
+</div>
 
 </asp:Content>
