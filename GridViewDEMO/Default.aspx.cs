@@ -137,7 +137,7 @@ namespace GridViewDEMO
             this.BindGrid();
         }
 
-        // confirmation message
+        // delete confirmation message
         protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex != GridView1.EditIndex)
